@@ -1,14 +1,16 @@
 var words = [];
 var wordTyped = '';
+var score = 0;
+var lifes = 5;
 
 var game = {
 
     drawWords: function() {
-        words.forEach(word => {
-            word.fly();
-            word.draw();
-            word.updateDistance();
-        });
+        for (let i = words.length - 1; i >= 0; i--) {
+            words[i].fly();
+            words[i].draw();
+            words[i].checkReset(i);
+        }
     },
 
     compareWords: function() {
@@ -24,14 +26,20 @@ var game = {
             wordTyped = '';
             setTimeout(function() {
                 words.splice(sameWord.index, 1);
+                score++;
             }, 300);
         }
     },
 
-    drawWordTyped: function() {
+    drawUI: function() {
+        textAlign(CENTER);
         fill('#100B00');
+        // Draw word typed
         textSize(76);
         text(wordTyped, width / 2, height - 70);
+        // Draw score
+        textSize(42);
+        text(score, 100, height - 70);
     },
 
     handleKeys: function() {
@@ -47,7 +55,7 @@ var game = {
 
     getNearestWord: function(wordList) {
         return wordList.reduce(function(wordA, wordB) {
-            if (wordA.word.distance < wordB.word.distance) {
+            if (wordA.word.x < wordB.word.x) {
                 return wordA;
             } else {
                 return wordB;

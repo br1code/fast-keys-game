@@ -17,13 +17,12 @@ function setup() {
 }
 
 function draw() {
-    background('#FFFFC7');
-    textAlign(CENTER);
-    
-    game.drawWords();
-    game.compareWords();
-    game.drawWordTyped();
-    
+    if (lifes) {
+        background(backgroundColors[lifes - 1]);
+        game.drawWords();
+        game.compareWords();
+        game.drawUI();
+    }
 }
 
 function keyPressed() {
@@ -32,4 +31,4 @@ function keyPressed() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-  }
+}

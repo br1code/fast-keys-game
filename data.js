@@ -29,3 +29,11 @@ var colors = [
     '#312F2F',
     '#04395E'
 ];
+
+var backgroundColors = [
+    '#ff4235',
+    '#fc604b',
+    '#ff9575',
+    '#ffc19e',
+    '#ffffc7'
+];
