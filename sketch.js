@@ -11,22 +11,31 @@ function setup() {
     }, 1000);
 
     setInterval(function() {
-        minSpeed *= 1.002;
-        maxSpeed *= 1.002;
+        minSpeed *= 1.001;
+        maxSpeed *= 1.001;
     }, 500);
 }
 
 function draw() {
-    if (lifes) {
-        background(backgroundColors[lifes - 1]);
+    let scene = game.setScene();
+    if (scene === SCENE_PLAYING) {
+        background(backgroundColors[game.getLifes() - 1]);
         game.drawWords();
         game.compareWords();
         game.drawUI();
+    } else {
+        game.drawGameOver();
     }
 }
 
 function keyPressed() {
     game.handleKeys();
+}
+
+// width / 2, height / 2 + 100
+function mouseClicked() {
+    
+    game.handleClicks();
 }
 
 function windowResized() {
