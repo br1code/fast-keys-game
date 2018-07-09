@@ -21,7 +21,6 @@ var wordsData = [
 
 var colors = [
     '#3D2B3D',
-    '#D36135',
     '#335C81',
     '#5941A9',
     '#312F2F',
@@ -39,3 +38,8 @@ var backgroundColors = [
     '#ffc19e',
     '#ffffc7'
 ];
+
+var colorFonts = {
+    black: '#100B00',
+    hover: '#E9EDDE'
+};

@@ -12,6 +12,8 @@ var game = function() {
     var lifes = 5;
     var wordsTemp = wordsData.slice();
     var scene = SCENE_PLAYING;
+    var playButtonColor = colorFonts.black;
+    var submitButtonColor = colorFonts.black;
 
     function getScore() {
         return score;
@@ -97,17 +99,33 @@ var game = function() {
     function drawGameOver() {
         background('#662C91');
         textAlign(CENTER);
-        fill('#100B00');
+
+        // Hover buttons and change colors
+        let hoverPlayAgainButton = (mouseX > width / 2 - 120 && mouseX < width / 2 + 120 &&
+            mouseY > height / 2 + 70 && mouseY < height / 2 + 110);
+
+        if (hoverPlayAgainButton) {
+            playButtonColor = colorFonts.hover;
+        } else {
+            playButtonColor = colorFonts.black;
+        }
+
+        // TEXTS
+        fill(colorFonts.black);
         // Score
         textSize(48);
         text('Score   ' + score, width / 2, height / 2 - 130);
         // Game Over
         textSize(76);
         text('Game Over', width / 2, height / 2);
+
+        // BUTTONS
         // Play again
+        fill(playButtonColor);
         textSize(32);
         text('Play Again', width / 2, height / 2 + 100);
         // Play again
+        fill(submitButtonColor);
         textSize(32);
         text('Submit Score', width / 2, height / 2 + 180);
     }
@@ -135,11 +153,15 @@ var game = function() {
     }
 
     function handleClicks() {
-        if (mouseX > width / 2 - 95 && mouseX < width / 2 + 120 &&
-            mouseY > height / 2 + 70 && mouseY < height / 2 + 110) {
+        if (scene === SCENE_OVER) {
+            let hoverPlayAgainButton = (mouseX > width / 2 - 120 && mouseX < width / 2 + 120 &&
+                mouseY > height / 2 + 70 && mouseY < height / 2 + 110);
+            if (hoverPlayAgainButton) {
                 game.resetGame();
             }
+        } 
     }
+
 
     public = {
         getScore,
