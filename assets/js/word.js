@@ -23,7 +23,6 @@ Word.prototype.draw = function() {
     textAlign(LEFT);
     fill(this.setColor());
     textSize(this.size);
-    textFont(fontWord);
     text(this.text, this.x, this.y);
 }
 

@@ -157,7 +157,7 @@ var game = function() {
             let hoverPlayAgainButton = (mouseX > width / 2 - 120 && mouseX < width / 2 + 120 &&
                 mouseY > height / 2 + 70 && mouseY < height / 2 + 110);
             if (hoverPlayAgainButton) {
-                game.resetGame();
+                resetGame();
             }
         } 
     }

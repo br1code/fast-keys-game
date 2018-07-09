@@ -16,6 +16,21 @@ var wordsData = [
     'profesor',
     'maestra',
     'papa',
+    'juego',
+    'castillo',
+    'escoba',
+    'escalera',
+    'carpeta',
+    'inteligencia',
+    'martillo',
+    'musica',
+    'ciudad',
+    'rojo',
+    'amarillo',
+    'azul',
+    'verde',
+    'naranja',
+    'violeta',    
     'mama'
 ];
 
